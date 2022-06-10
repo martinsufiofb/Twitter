@@ -1,6 +1,11 @@
 package com.codepath.apps.restclienttemplate.models;
 
 import android.util.Log;
+import android.widget.ImageView;
+
+import androidx.appcompat.view.menu.MenuView;
+
+import com.codepath.apps.restclienttemplate.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -21,6 +26,7 @@ public class Tweet {
     private static final int HOUR_MILLIS = 60 * MINUTE_MILLIS;
     private static final int DAY_MILLIS = 24 * HOUR_MILLIS;
     public static final String TAG = "last seen";
+
 
     public String getRelativeTimeAgo(String rawJsonDate) {
         String twitterFormat = "EEE MMM dd HH:mm:ss ZZZZZ yyyy";
@@ -60,7 +66,7 @@ public class Tweet {
     public User user;
     public String imageUrl;
     public String lastseen;
-//    public int likecount;
+
 
     public Tweet(){}
 
@@ -71,7 +77,7 @@ public class Tweet {
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         tweet.imageUrl = "";
         tweet.lastseen = tweet.getRelativeTimeAgo(tweet.createdAt);
-//        tweet.likecount = jsonObject.getInt("tweet_count");
+
 
         if (jsonObject.has("full_text")){
             tweet.body = jsonObject.getString("full_text");
@@ -88,6 +94,9 @@ public class Tweet {
         return tweet;
     }
 
+
+
+
     public static  List<Tweet> fromJsonArray(JSONArray jsonArray) throws JSONException {
         List<Tweet> tweets = new ArrayList<>();
         for (int i = 0; i<jsonArray.length(); i++){
@@ -95,6 +104,8 @@ public class Tweet {
         }
         return tweets;
     }
+
+
 
 
 

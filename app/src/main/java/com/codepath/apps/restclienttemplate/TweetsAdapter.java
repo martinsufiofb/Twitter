@@ -1,11 +1,13 @@
 package com.codepath.apps.restclienttemplate;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +21,7 @@ import java.util.List;
 public class TweetsAdapter extends  RecyclerView.Adapter<TweetsAdapter.ViewHolder>{
      Context context;
      List<Tweet> tweets;
+
 
     public TweetsAdapter(Context context, List<Tweet> tweets) {
         this.context = context;
@@ -50,7 +53,7 @@ public class TweetsAdapter extends  RecyclerView.Adapter<TweetsAdapter.ViewHolde
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //get the data
         Tweet tweet = tweets.get(position);
-        // Bind the tweet with the viewholder
+
         holder.bind(tweet);
     }
 
@@ -69,7 +72,9 @@ public class TweetsAdapter extends  RecyclerView.Adapter<TweetsAdapter.ViewHolde
         TextView tvScreenName;
         ImageView ivimage;
         TextView tvlastseen;
-//        TextView tvlikecount;
+        ImageView ivcomment;
+//        TextView textView2;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -78,18 +83,30 @@ public class TweetsAdapter extends  RecyclerView.Adapter<TweetsAdapter.ViewHolde
             tvScreenName = itemView.findViewById(R.id.tvScreenName);
             ivimage = itemView.findViewById(R.id.ivimage);
             tvlastseen = itemView.findViewById(R.id.tvlastseen);
-//            tvlikecount = itemView.findViewById(R.id.tvlikecount);
+            ivcomment = itemView.findViewById(R.id.ivreply);
+//            textView2 = itemView.findViewById(R.id.textView2);
+
         }
 
         public void bind(Tweet tweet) {
             tvBody.setText(tweet.body);
             tvScreenName.setText(tweet.user.screenName);
             tvlastseen.setText(tweet.lastseen);
-//            tvlikecount.setText(tweet.likecount);
+//            textView2.setText(tweet.user.username);
             Glide.with(context).load(tweet.user.profileImageUrl).transform(new RoundedCorners(60)).into(ivProfileImage);
             Glide.with(context).load(tweet.imageUrl).into(ivimage);
 
+            ivcomment.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context,CommentActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
         }
+
+
     }
 
 

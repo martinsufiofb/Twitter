@@ -9,6 +9,7 @@ public class User {
     public String name;
     public String screenName;
     public String profileImageUrl;
+    public String username;
 
     public User(){}
 

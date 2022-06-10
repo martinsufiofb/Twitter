@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.codepath.apps.restclienttemplate.models.Tweet;
@@ -59,7 +60,6 @@ public class TimelineActivity extends AppCompatActivity {
                 android.R.color.holo_green_light,
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
-
 
 
         client = TwitterApp.getRestClient(this);
@@ -157,4 +157,6 @@ public class TimelineActivity extends AppCompatActivity {
         startActivity(i);
         Toast.makeText(this, "You have sucessfully logged out", Toast.LENGTH_LONG).show();
     }
+
+
 }
