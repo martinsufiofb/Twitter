@@ -60,6 +60,7 @@ public class Tweet {
     public User user;
     public String imageUrl;
     public String lastseen;
+//    public int likecount;
 
     public Tweet(){}
 
@@ -70,6 +71,7 @@ public class Tweet {
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
         tweet.imageUrl = "";
         tweet.lastseen = tweet.getRelativeTimeAgo(tweet.createdAt);
+//        tweet.likecount = jsonObject.getInt("tweet_count");
 
         if (jsonObject.has("full_text")){
             tweet.body = jsonObject.getString("full_text");
