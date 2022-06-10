@@ -30,13 +30,13 @@ public class TweetsAdapter extends  RecyclerView.Adapter<TweetsAdapter.ViewHolde
         this.tweets = tweets;
     }
 
-        // Clean all elements of the recycler
+
         public void clear() {
             tweets.clear();
             notifyDataSetChanged();
         }
 
-        // Add a list of items -- change to type used
+
         public void addAll(List<Tweet> list) {
             tweets.addAll(list);
             notifyDataSetChanged();
@@ -55,7 +55,6 @@ public class TweetsAdapter extends  RecyclerView.Adapter<TweetsAdapter.ViewHolde
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         //get the data
         Tweet tweet = tweets.get(position);
-
         holder.bind(tweet);
     }
 
@@ -114,7 +113,6 @@ public class TweetsAdapter extends  RecyclerView.Adapter<TweetsAdapter.ViewHolde
         @Override
         public void onClick(View view) {
             int position = getAdapterPosition();
-            // make sure the position is valid, i.e. actually exists in the view
             if (position != RecyclerView.NO_POSITION) {
 
                 Tweet tweet = tweets.get(position);

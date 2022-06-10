@@ -23,10 +23,7 @@ public class CommentActivity extends AppCompatActivity {
         Bundle extra = getIntent().getExtras();
         value=getIntent().getStringExtra("key");
         textView2.setText(value);
-//        if (extra!=null){
-//            //value =extra.getString("key");
-//            //textView2.setText(value);
-//        }
+
 
 
 
