@@ -48,14 +48,13 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
-        android:textSize="12sp"
-        android:textColor="@color/cardview_dark_background"
-        android:layout_marginStart="3dp"
         android:text="Replying to"
-        android:textStyle="bold"
-        />
+        android:textColor="@color/cardview_dark_background"
+        android:textSize="12sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView2"
